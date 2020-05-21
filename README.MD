@@ -1,5 +1,7 @@
+# WORK IN PROGRESS!!!!!!!
+
 # Vidatec challenge
-Proyecto realizado como challenge para Vidatec
+Proyecto realizado como challenge para Vidatec. 
 
 # Descripcion
 La aplicacion fue realizada con Angular 8 en la parte del front-end y Nodejs en la parte del back-end
@@ -20,6 +22,10 @@ Luego ingresar al directorio `/docker` y correr el comando `docker-compose up`, 
 Para terminar el proceso nuevamente en el directorio `/docker` ejecutamos el comando `docker-compose down`, de esta manera nos aseguramos de eliminar a los contenedores creados.
 
 Nota: La primera vez que se corre puede demorar un poco mas en iniciar debido a la descarga de las imagenes que se utilizan dentro de los contenedores para cada uno de los servicios.
+
+Para ingresar a la aplicacion desde el browser deberá utilizar la url http://localhost:3000
+
+En la carpeta `/front/src/assets` se puede encontrar un csv de prueba para subir
 
 # TODO
 ## back
