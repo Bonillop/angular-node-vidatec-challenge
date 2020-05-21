@@ -1,0 +1,12 @@
+
+
+<h1>Movies</h1>
+
+<ul *ngIf="movies; else elseBlock">
+  <li *ngFor="let movie of movies">
+    <p class="mainTemp"> Main temp: {{movie.main.temp}}</p>
+    <p class="feelsLike"> Feels Like: {{movie.main.feels_like}}</p>
+  </li>
+</ul>
+
+<ng-template #elseBlock>Loading...</ng-template>
