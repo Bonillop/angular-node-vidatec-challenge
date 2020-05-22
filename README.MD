@@ -7,13 +7,17 @@ Proyecto realizado como challenge para Vidatec.
 La aplicacion fue realizada con Angular 8 en la parte del front-end y Nodejs en la parte del back-end
 
 ## Dependencias
-Adicionalmente del lado del back-end se utilizar las siguientes librerias
+Adicionalmente se utilizaron las siguientes librerias
 
+Back-end
 - express, para configuracion de webserver y manejo de rutas
 - multpart, para el manejo de la carga de archivos ingresados por el usuario
 - nodemon, para tener hot reloading y mejorar la experiencia de desarrollo
 - csvtojson, para conversion de archivo csv a json
 - mongoose, para la definicion de modelos para interactuar con la base de datos
+
+Front-end
+- ngx-pagination, para facilitar el manejo de la paginacion en el front
 
 # Instalacion
 Para comenzar a usarlo va a ser necesario tener instalado `npm`, `docker` y `docker-compose`.
