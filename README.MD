@@ -27,10 +27,18 @@ Para ingresar a la aplicacion desde el browser deberá utilizar la url http://lo
 
 En la carpeta `/front/src/assets` se puede encontrar un csv de prueba para subir
 
+Para inspeccionar facilmente el estado de la base de datos se puede navegar a través de la url http://localhost:8081 con el docker levantado
+
 # TODO
 ## back
-- parseo del csv subido por el usuario y almacenamiento de la informacion en la base de datos
+- limite y paginacion del get de movies
+- endpoint para get de movie por titulo
+- edicion y eliminacion de peliculas
+- agregar typescript
+- tests
+- error handling
 
 ## front
-- utilizar informacion de la base de datos para poblar la seccion de list
+- agregar filtros en la lista de movies
+- edicion y eliminacion de peliculas
 

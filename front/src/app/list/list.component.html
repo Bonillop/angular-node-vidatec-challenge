@@ -1,12 +1,18 @@
-
-
 <h1>Movies</h1>
 
-<ul *ngIf="movies; else elseBlock">
-  <li *ngFor="let movie of movies">
-    <p class="mainTemp"> Main temp: {{movie.main.temp}}</p>
-    <p class="feelsLike"> Feels Like: {{movie.main.feels_like}}</p>
+<ul *ngIf="movies; else loadingBlock">
+  <li *ngFor="let movie of movies | paginate: {itemsPerPage: 6, currentPage: currentPage}">
+    <p class="title"> Title: {{movie.titulo}}</p>
+    <p class="gender"> Gender: {{movie.genero}}</p>
+    <p class="year"> Year: {{movie["año"]}}</p>
+    <p class="director"> Director: {{movie.director}}</p>
+    <p class="cast"> Cast: {{movie.actores}}</p>
   </li>
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
 </ul>
 
-<ng-template #elseBlock>Loading...</ng-template>
+<ng-template #loadingBlock>
+  <div *ngIf="!noMovies; else noMoviesBlock">Loading...</div>
+</ng-template>
+
+<ng-template #noMoviesBlock>No movies available</ng-template>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CsvService } from '../csv.service'
+import { MovieService } from '../movie.service'
 
 @Component({
   selector: 'app-list',
@@ -9,13 +9,18 @@ import { CsvService } from '../csv.service'
 export class ListComponent implements OnInit {
 
   movies: any[];
+  currentPage: number = 1;
+  noMovies: boolean = false;
 
-  constructor(private _csv: CsvService) { }
+  constructor(private _csv: MovieService) { }
 
   ngOnInit(): void {
-    this._csv.getMovies().subscribe((data: any) => {
-      this.movies = data.list;
-      console.log(this.movies);
+    this._csv.getMovies().subscribe((result: any) => {
+      if(result.data.length > 0){
+        this.movies = result.data;
+      } else {
+        this.noMovies = true;
+      }
     });
   }
 

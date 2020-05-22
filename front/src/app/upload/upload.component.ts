@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { CsvService } from '../csv.service'
+import { MovieService } from '../movie.service'
 
 @Component({
   selector: 'app-upload',
@@ -12,8 +12,9 @@ export class UploadComponent implements OnInit {
     file: new FormControl('', [Validators.required, this.validCSVFile]),
   })
   csv: File = null;
+  success: boolean = false;
 
-  constructor(private _csv: CsvService) { }
+  constructor(private _csv: MovieService) { }
 
   get file() {return this.uploadForm.get('file')}
 
@@ -21,9 +22,9 @@ export class UploadComponent implements OnInit {
   }
 
   onSelectedFile(event){
+    this.success = false;
     const file = <File>event.target.files[0];
     if(this.isValidCSVFile(file)){
-      console.log(file);
       this.csv = file;
     } else {
       console.log("Invalid file");
@@ -31,15 +32,18 @@ export class UploadComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("submit");
-    console.log(this.csv);
-
     const formData = new FormData();
     formData.append('file', this.csv);
 
     this._csv.uploadCsv(formData).subscribe(
-      data => console.log("Success", data),
-      error => console.log("Something went wrong", error)
+      data => {
+        this.success = true;
+        this.uploadForm.reset({file: ''});
+      },
+      error => {
+        console.log("Something went wrong", error)
+        this.uploadForm.reset({file: ''});
+      }
     )
   }
 
